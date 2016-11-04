@@ -20,4 +20,30 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: "Hello world" 
+  controller:
+    
+  views:
+    layouts:
+      header:
+        home: "Home"
+        help: "Help"
+        title: "Book Reviews"
+      footer:
+        about: "About"
+        contact: "Contact"
+        title: "Book Reviews"
+    pages:
+      about: 
+        title: "About"
+        content: "The reading of all good books is like a conversation 
+          with the finest minds of past centuries   "
+      contact:
+        title: "Contact"
+      help:
+        title: "Help"
+      home:
+        title: "Home"
+        content: "Welcome to the Book Reviews"    
+  helpers:
+    base_title: "Book Reviews"

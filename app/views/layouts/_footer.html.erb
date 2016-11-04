@@ -1,0 +1,11 @@
+<footer class="footer">
+  <small>
+    <p>© <%= l Date.today %><%= t("views.layouts.footer.title") %></p>
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to t("views.layouts.footer.about"), "/pages/about" %></li>
+      <li><%= link_to t("views.layouts.footer.contact"), "/pages/contact"%></li>
+    </ul>
+  </nav>
+</footer>
