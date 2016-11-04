@@ -15,20 +15,20 @@ ActiveRecord::Schema.define(version: 20161101024642) do
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "target_id"
     t.integer  "activity_type"
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["users_id"], name: "index_activities_on_users_id", using: :btree
+    t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
   end
 
   create_table "book_marks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "reading_status"
+    t.integer  "read_status"
     t.boolean  "is_favorite"
     t.integer  "user_id"
-    t.integer  "books_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["books_id"], name: "index_book_marks_on_books_id", using: :btree
+    t.integer  "book_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["book_id"], name: "index_book_marks_on_book_id", using: :btree
     t.index ["user_id"], name: "index_book_marks_on_user_id", using: :btree
   end
 
@@ -39,35 +39,36 @@ ActiveRecord::Schema.define(version: 20161101024642) do
     t.integer  "number_rate_of_book"
     t.integer  "number_of_page"
     t.integer  "category_id"
+    t.datetime "publish_date"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.index ["category_id"], name: "index_books_on_category_id", using: :btree
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "category_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",          limit: 65535
-    t.integer  "reviews_rates_id"
-    t.integer  "users_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.index ["reviews_rates_id"], name: "index_comments_on_reviews_rates_id", using: :btree
-    t.index ["users_id"], name: "index_comments_on_users_id", using: :btree
+    t.text     "content",        limit: 65535
+    t.integer  "review_rate_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["review_rate_id"], name: "index_comments_on_review_rate_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "like_activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "is_like"
-    t.integer  "users_id"
-    t.integer  "activities_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["activities_id"], name: "index_like_activities_on_activities_id", using: :btree
-    t.index ["users_id"], name: "index_like_activities_on_users_id", using: :btree
+    t.integer  "user_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["activity_id"], name: "index_like_activities_on_activity_id", using: :btree
+    t.index ["user_id"], name: "index_like_activities_on_user_id", using: :btree
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -89,36 +90,37 @@ ActiveRecord::Schema.define(version: 20161101024642) do
     t.index ["user_id"], name: "index_requests_on_user_id", using: :btree
   end
 
-  create_table "reviews_rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "review_rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",             limit: 65535
     t.integer  "number_rate_of_user"
     t.integer  "user_id"
-    t.integer  "books_id"
+    t.integer  "book_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.index ["books_id"], name: "index_reviews_rates_on_books_id", using: :btree
-    t.index ["user_id"], name: "index_reviews_rates_on_user_id", using: :btree
+    t.index ["book_id"], name: "index_review_rates_on_book_id", using: :btree
+    t.index ["user_id"], name: "index_review_rates_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
-    t.boolean  "is_admin"
-    t.string   "password_degest"
+    t.boolean  "is_admin",        default: false
+    t.string   "password_digest"
     t.string   "gravatar"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "remember_digest"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
-  add_foreign_key "activities", "users", column: "users_id"
-  add_foreign_key "book_marks", "books", column: "books_id"
+  add_foreign_key "activities", "users"
+  add_foreign_key "book_marks", "books"
   add_foreign_key "book_marks", "users"
   add_foreign_key "books", "categories"
-  add_foreign_key "comments", "reviews_rates", column: "reviews_rates_id"
-  add_foreign_key "comments", "users", column: "users_id"
-  add_foreign_key "like_activities", "activities", column: "activities_id"
-  add_foreign_key "like_activities", "users", column: "users_id"
+  add_foreign_key "comments", "review_rates"
+  add_foreign_key "comments", "users"
+  add_foreign_key "like_activities", "activities"
+  add_foreign_key "like_activities", "users"
   add_foreign_key "requests", "users"
-  add_foreign_key "reviews_rates", "books", column: "books_id"
-  add_foreign_key "reviews_rates", "users"
+  add_foreign_key "review_rates", "books"
+  add_foreign_key "review_rates", "users"
 end
