@@ -47,3 +47,13 @@ en:
         content: "Welcome to the Book Reviews"    
   helpers:
     base_title: "Book Reviews"
+  sessions:
+    label_signup: "Sign up now!"
+  flash:
+    login_success: "Welcome to the Book-Review!"
+    find_user_fail: "User not found!"
+    errors: "The form contains"
+    error: "The form contains %{error_count} errors"
+  users:
+    create_user: "Create my account"
+    signup: "Sign Up"  
