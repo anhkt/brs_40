@@ -29,6 +29,13 @@ en:
         home: "Home"
         help: "Help"
         title: "Book Reviews"
+        user: "Users"
+        account: "Account"
+        profile: "Profile"
+        logout: "Log out"
+        login: "Log in"
+        setting: "Settings"
+        user: "Manager Users"
       footer:
         about: "About"
         contact: "Contact"
@@ -49,18 +56,26 @@ en:
     base_title: "Book Reviews"
   sessions:
     label_signup: "Sign up now!"
-    login: "Log in"
     remember: "Remember me on this computer"
     new_user: "New user?"
-    account: "Account"
-    logout: "Log out"
-    profile: "Profile"
+    login: "Log in"
   flash:
     login_success: "Welcome to the Book-Review!"
     find_user_fail: "User not found!"
     errors: "The form contains"
     error: "The form contains %{error_count} errors"
     login_errors: "Invalid email/password combination"
+    update_success: "Profile updated"
+    logged_in: "Please Login"
   users:
     create_user: "Create my account"
-    signup: "Sign Up"  
+    edit:
+        title: "Edit my profile"
+        h2: "Update your profile"
+        save: "Save change"
+        change: "Change"
+    new:
+        signup: "Signup"
+        form:
+          confir: "Confirmation"
+          submit: "Create my account" 
