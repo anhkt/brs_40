@@ -35,6 +35,16 @@ en:
       login:
         flash:
           danger: "Please login as admin"
+
+    categories:
+      flash_find_fails: "Don't find category"
+      flash_delete_fail: "Delete fail"
+      flash_delete_success: "Delete success"
+      flash_success: "Update success"
+      flash_create_success: "Create success"
+      flash_danger: "Don't find category" 
+      categories_danger: "Don't find categories"  
+      category_blank: "Don't have a category. Let's create a category"   
     
   views:
     layouts:
@@ -49,6 +59,8 @@ en:
         login: "Log in"
         setting: "Settings"
         user: "Manager Users"
+        categories: "Book Library"
+        admin_categories: "Manager categories"
       footer:
         about: "About"
         contact: "Contact"
@@ -72,7 +84,24 @@ en:
           deletebutton: "Delete"
           deleteconfirm: "Are you sure?"
           title: "Manage User"
-          stt: "STT"       
+          stt: "STT"  
+      
+    categories:
+      title_page: "Categories"
+      stt: "STT"
+      title: "Name_Category"
+      update_button: "Save change" 
+      admin_function: ""
+      edit_button: "Edit" 
+      delete_button: "Delete"
+      delete_confirm: "Are your sure?"
+      create_category: "Create New Category"
+      create_button: "Add new category"
+      category: "Category"
+      create_title: "Create Category"
+      dashboard: "Manage Category"
+      new_button: "New Category"
+      
   helpers:
     base_title: "Book Reviews"
   sessions:
@@ -94,4 +123,4 @@ en:
         signup: "Signup"
         form:
           confir: "Confirmation"
-          submit: "Create my account" 
+          submit: "Create my account"
