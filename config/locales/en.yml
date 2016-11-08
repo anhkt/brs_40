@@ -21,7 +21,20 @@
 
 en:
   hello: "Hello world" 
-  controller:
+  controllers:
+    flash:
+      destroy_success: "User is deleted"
+      destroy_error: "User is not deleted"
+      logged_in: "Please Login"
+      login_errors: "Invalid email/password combination"
+      login_success: "Welcome to the Book-Review!"
+      update_success: "Profile updated"
+      find_user_fail: "User not found!"
+
+    admin:
+      login:
+        flash:
+          danger: "Please login as admin"
     
   views:
     layouts:
@@ -51,7 +64,15 @@ en:
         title: "Help"
       home:
         title: "Home"
-        content: "Welcome to the Book Reviews"    
+        content: "Welcome to the Book Reviews" 
+    admin:
+      user:
+        index:
+          dashboard: "Manage User"
+          deletebutton: "Delete"
+          deleteconfirm: "Are you sure?"
+          title: "Manage User"
+          stt: "STT"       
   helpers:
     base_title: "Book Reviews"
   sessions:
@@ -60,13 +81,8 @@ en:
     new_user: "New user?"
     login: "Log in"
   flash:
-    login_success: "Welcome to the Book-Review!"
-    find_user_fail: "User not found!"
     errors: "The form contains"
     error: "The form contains %{error_count} errors"
-    login_errors: "Invalid email/password combination"
-    update_success: "Profile updated"
-    logged_in: "Please Login"
   users:
     create_user: "Create my account"
     edit:
