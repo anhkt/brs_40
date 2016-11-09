@@ -13,4 +13,8 @@ User.create!(name: "ducbka",
     password: password,
     password_confirmation: password)
 end
-
+  
+5.times do |n|
+  name = Faker::Name.name
+  Category.create!(category_name: name)  
+end

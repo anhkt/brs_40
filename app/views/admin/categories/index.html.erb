@@ -1,0 +1,31 @@
+<% provide :title, t("views.categories.title_page") %>
+<h1><%= t "views.categories.dashboard" %></h1>
+
+<%= link_to t("views.categories.new_button"),
+  new_admin_category_path, class: "btn btn-info" %>
+
+<table class="table table-hover">
+  <tr>
+    <th><%= t "views.categories.stt" %></th>
+    <th><%= t "views.categories.title" %></th>
+    <th><%= t "views.categories.admin_function" %></th>
+  </tr>
+  <% @categories.each.with_index do |category, index| %>
+    <tr>
+      <td> <%= index + 1 %> </td>
+      <td> <%= category.category_name %> </td>
+      <td>
+        <span>
+          <%= link_to t("views.categories.edit_button"),
+            edit_admin_category_url(category), class:"btn btn-info" %>
+          <%= link_to t("views.categories.delete_button"),
+            admin_category_url(category), method: :delete,
+            data: {confirm: t("views.categories.delete_confirm")},
+            class:"btn btn-danger" %>
+        </span>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate %>
