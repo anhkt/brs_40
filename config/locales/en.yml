@@ -44,7 +44,10 @@ en:
       flash_create_success: "Create success"
       flash_danger: "Don't find category" 
       categories_danger: "Don't find categories"  
-      category_blank: "Don't have a category. Let's create a category"   
+      category_blank: "Don't have a category. Let's create a category"  
+
+    books:
+      book_blank: "Don't find book"   
     
   views:
     layouts:
@@ -101,6 +104,13 @@ en:
       create_title: "Create Category"
       dashboard: "Manage Category"
       new_button: "New Category"
+      book_nill: "Don't have book in category"
+
+    books:
+      title: "List Book"
+      author: "Author: "
+      description: "Description: "  
+      all_books: "All Books"
       
   helpers:
     base_title: "Book Reviews"

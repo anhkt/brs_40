@@ -3,9 +3,13 @@ class CategoriesController < ApplicationController
   before_action :load_categories, only: [:show, :index]
 
   def index
+    @books = Book.order_desc.paginate page: params[:page],
+      per_page: Settings.per_page
   end
 
   def show
+    @books = @category.books.order_desc.paginate page: params[:page],
+      per_page: Settings.per_page
   end
 
   private

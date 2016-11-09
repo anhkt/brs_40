@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   
   resources :users, except: [:destroy]
   resources :categories, only: [:index, :show]
+  resources :books, only: [:index, :show]
 end
