@@ -4,7 +4,7 @@ User.create!(name: "ducbka",
   password_confirmation: "123456",
   is_admin: true)
 
-99.times do |n|
+20.times do |n|
   name  = Faker::Name.name
   email = "project-#{n+1}@gmail.com"
   password = "password"
@@ -14,7 +14,20 @@ User.create!(name: "ducbka",
     password_confirmation: password)
 end
   
-5.times do |n|
+16.times do |n|
   name = Faker::Name.name
   Category.create!(category_name: name)  
+end
+
+categories = Category.take(16)
+16.times do
+  title = Faker::Book.title
+  author = Faker::Book.author
+  description = Faker::Lorem.characters(100)
+  date = Faker::Date.between(2.days.ago, Date.today)
+  number_page = Faker::Number.between(1, 100)
+  categories.each{ |cat|
+    cat.books.create!(title: title,author: author,
+      publish_date: date, number_of_page: number_page,description: description)
+  }
 end

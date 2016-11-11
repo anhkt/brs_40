@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20161101024642) do
     t.string   "title"
     t.string   "author"
     t.float    "avg_rates",           limit: 24
+    t.string   "cover"
+    t.string   "description"
     t.integer  "number_rate_of_book"
     t.integer  "number_of_page"
     t.integer  "category_id"

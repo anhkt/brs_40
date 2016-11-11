@@ -4,6 +4,8 @@ class CreateBooks < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :author
       t.float :avg_rates
+      t.string :cover
+      t.string :description
       t.integer :number_rate_of_book
       t.integer :number_of_page
       t.references :category, foreign_key: true
