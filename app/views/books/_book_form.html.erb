@@ -3,15 +3,19 @@
   <div class="row">
     <% book.each do |book| %>
       <div class="col-md-3 index-grid-image">
-        <% if book.cover? %>
-          <%= link_to image_tag(book.cover.url,
-            class: "book_cover_img center-block"), book_path(book) %>
-        <% else %>
-          <%= link_to image_tag("img.jpg",
-            class: "book_cover_img center-block"), book %>
-        <% end %>
-      </div> 
-      <div class="name"> <%= book.title %> </div>
+        <div class="row">
+          <div class="col-md-12 text-center name"><%= book.title %></div>
+          <div class="col-md-12">
+            <% if book.cover? %>
+              <%= link_to image_tag(book.cover.url,
+                class: "book_cover_img center-block"), book_path(book) %>
+            <% else %>
+              <%= link_to image_tag("img.jpg",
+                class: "book_cover_img center-block"), book %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 <% end %>

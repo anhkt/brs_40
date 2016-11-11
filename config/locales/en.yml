@@ -34,10 +34,10 @@ en:
     admin:
       login:
         flash:
-          danger: "Please login as admin"
+          danger: "Please login as admin"   
 
     categories:
-      flash_find_fails: "Don't find category"
+      flash_find_fails: "Don't find books"
       flash_delete_fail: "Delete fail"
       flash_delete_success: "Delete success"
       flash_success: "Update success"
@@ -47,7 +47,12 @@ en:
       category_blank: "Don't have a category. Let's create a category"  
 
     books:
-      book_blank: "Don't find book"   
+      book_blank: "Don't find book"  
+      create_success: "Create book success"    
+      update_success: "Update success"
+      destroy_success: "Delete success"
+      destroy_fail: "Delete fail"
+      find_book_fail: "Don't find book"
     
   views:
     layouts:
@@ -111,6 +116,20 @@ en:
       author: "Author: "
       description: "Description: "  
       all_books: "All Books"
+      edit_title: "Edit book"
+      show_edit: "Edit"
+      create_new_book: "Create new book"
+      stt: "STT"
+      name_title: "Title"
+      author: "Author"
+      publish_date: "Publish_date"
+      rate: "Rate"
+      action: "Action"
+      pages: "Pages"
+      rate_5: "****"
+      delete: "Delete"
+      confirm: "You sure delete this book?"
+      new_title: "Create new book"
       
   helpers:
     base_title: "Book Reviews"
