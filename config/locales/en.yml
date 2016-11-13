@@ -53,6 +53,11 @@ en:
       destroy_success: "Delete success"
       destroy_fail: "Delete fail"
       find_book_fail: "Don't find book"
+
+    requests:
+      create_success: "Requests is create"
+      destroy_success: "Requests is deleted"
+      destroy_error: "Requests is not deleted"  
     
   views:
     layouts:
@@ -131,6 +136,20 @@ en:
       confirm: "You sure delete this book?"
       new_title: "Create new book"
       
+
+    requests:
+      requests: "Requests"
+      dashboard: "Request Book"
+      id: "Id"
+      book_title: "Book Name"
+      book_author: "Author"
+      content: "Content"
+      cancel_button: "Cancel"
+      deleteconfirm: "Are you sure?"
+      new_button: "New request"
+      title: "New Requests"
+      create_requests: "Create new request"
+      create_button: "Create request"  
   helpers:
     base_title: "Book Reviews"
   sessions:
