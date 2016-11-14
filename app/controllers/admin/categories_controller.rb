@@ -1,6 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_action :logged_in_user
-  before_action :find_category, only: [:edit, :update, :destroy]
+  before_action :verify_admin
+  before_action :load_category, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.paginate page: params[:page], per_page: Settings.per_page
@@ -50,11 +51,11 @@ class Admin::CategoriesController < ApplicationController
     params.require(:category).permit :category_name
   end
 
-  def find_category
+  def load_category
     @category = Category.find_by id: params[:id]
     if @category.nil?
-      flash[:danger] = t "controllers.categories.flash_find_fails"
-      redirect_to admin_categories_path
+      redirect_to root_path
+      flash[:danger] = t "controllers.categories.categories_danger"
     end
   end
 end

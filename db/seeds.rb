@@ -31,3 +31,15 @@ categories = Category.take(16)
       publish_date: date, number_of_page: number_page,description: description)
   }
 end
+
+categories = Category.find 4
+3.times do
+  title = Faker::Book.title
+  author = Faker::Book.author
+  description = Faker::Lorem.characters(100)
+  date = Faker::Date.between(2.days.ago, Date.today)
+  number_page = Faker::Number.between(1, 100)
+  categories.books.create!(title: title,author: author,
+    publish_date: date, number_of_page: number_page,description: description)
+end
+

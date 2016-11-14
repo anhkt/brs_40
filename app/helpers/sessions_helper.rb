@@ -31,6 +31,14 @@ module SessionsHelper
     current_user.present?
   end
 
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = t "logged_in.danger"
+      redirect_to login_url
+    end
+  end
+
   def log_out
     forget current_user
     session.delete :user_id

@@ -12,8 +12,12 @@
   </tr>
   <% @categories.each.with_index do |category, index| %>
     <tr>
-      <td> <%= index + 1 %> </td>
-      <td> <%= category.category_name %> </td>
+      <% stt = (params[:page].to_i - 1) * 8 %>
+      <% stt = 0 if stt < 0 %>
+      <td> <%= stt + index + 1  %> </td>
+      <td>
+        <%= link_to category.category_name,
+          admin_category_books_path(category) %> </td>
       <td>
         <span>
           <%= link_to t("views.categories.edit_button"),

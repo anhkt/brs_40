@@ -195,7 +195,7 @@ input {
  border: solid 1px #000000;
   img{
     border: solid 1px #999999;
-    height: 430px;
+    width: 100%;
   }
 }
 .name {
@@ -204,7 +204,7 @@ input {
 }
 
 .index-grid-image{
-  height: 300px;
+  min-height: 300px;
   padding: 10px;
 }
 .book_cover_img{
@@ -237,4 +237,20 @@ input {
     margin-bottom: 10px;
     border-right: solid 1px #DADADA;
   }
+}
+
+/* admin */
+/* book */
+.table-book{
+  margin-top: 20px;
+  .head-table{
+    background: #000000;
+    color: #fff;
+  }
+}
+.row-button{
+  margin-top: 20px;
+}
+.header{
+  margin-top: 20px;
 }
