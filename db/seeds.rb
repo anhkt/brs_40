@@ -43,3 +43,9 @@ categories = Category.find 4
     publish_date: date, number_of_page: number_page,description: description)
 end
 
+users = User.all
+user = user.first
+following = users[1..10]
+followers = users[2..7]
+following.each {|followed| user.follow(followed)}
+followers.each {|follower| follower.follow(user)}
