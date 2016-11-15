@@ -58,6 +58,13 @@ en:
       create_success: "Requests is create"
       destroy_success: "Requests is deleted"
       destroy_error: "Requests is not deleted"  
+
+    reviews:
+      flash_success: "Create review success"
+      update_success: "Update success"
+      destroy_success: "Delete success"
+      destroy_fail: "Delete fail"
+      find_review_fail: "Don't find Review"  
     
   views:
     layouts:
@@ -98,7 +105,24 @@ en:
           deleteconfirm: "Are you sure?"
           title: "Manage User"
           stt: "STT"  
-      
+
+    reviews:
+      user: "User"
+      review: "Review"
+      status: "Reading Status : "
+      content_review: "Review this Book"
+      continue: "Continue..."
+      like: "Like"
+      unlike: "Unlike"
+      edit: "Edit"
+      delete: "Delete"
+      data_confirm: "You sure delete this review?"
+      create_review: "Create Review"
+      edit_review: "Edit review"
+      back: "Back"
+      review: "Review"
+      create_review: "Create Review"
+
     categories:
       title_page: "Categories"
       stt: "STT"
@@ -124,7 +148,7 @@ en:
       edit_title: "Edit book"
       show_edit: "Edit"
       create_new_book: "Create new book"
-      stt: "STT"
+      id: "STT"
       name_title: "Title"
       author: "Author"
       publish_date: "Publish_date"
@@ -140,7 +164,7 @@ en:
     requests:
       requests: "Requests"
       dashboard: "Request Book"
-      id: "Id"
+      id: "STT"
       book_title: "Book Name"
       book_author: "Author"
       content: "Content"

@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
       log_in user
       params[:session][:remember_me] == "1" ? remember(user) : forget(user)
       if user.is_admin?
-        redirect_to admin_categories_path
+        redirect_back_or admin_categories_path
       else
-        redirect_to root_path
+        redirect_back_or root_path
       end
     else
       flash.now[:danger] = t "controllers.flash.login_errors"

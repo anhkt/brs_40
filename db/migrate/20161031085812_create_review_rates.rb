@@ -2,6 +2,7 @@ class CreateReviewRates < ActiveRecord::Migration[5.0]
   def change
     create_table :review_rates do |t|
       t.text :content
+      t.integer :read_status
       t.integer :number_rate_of_user
       t.references :user, foreign_key: true
       t.references :book, foreign_key: true

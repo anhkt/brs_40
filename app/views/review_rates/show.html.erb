@@ -1,0 +1,21 @@
+<%= provide :title, t("views.reviews.show_title") %>
+<div class="div-margin-top">
+  <%= link_to t("views.reviews.back"),
+    book_path(@review.book), class: "btn btn-lg btn-success" %>
+</div>
+<div class="container">
+  <div class="row col-md-offset-5">
+    <%= gravatar_for @review.user %>
+    <div class="div-margin-top">
+      <%= link_to @review.user.name, user_path(@review.user) %>
+    </div>
+  </div>
+  <div class="row content-review">
+    <div class="col-md-8 col-md-offset-2">
+      <div>
+        <h5><strong><%= t "views.reviews.content_review" %></strong></h5>
+        <p><%= @review.content %></p>
+      </div>
+    </div>
+  </div>
+</div>
