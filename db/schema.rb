@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20161101024642) do
 
   create_table "review_rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",             limit: 65535
+    t.integer  "read_status"
     t.integer  "number_rate_of_user"
     t.integer  "user_id"
     t.integer  "book_id"

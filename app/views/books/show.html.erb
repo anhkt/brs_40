@@ -29,4 +29,13 @@
       <%= @book.description %>
     </div>
   </div>
+  <div class="row div-button-create-review">
+    <div class="cold-md-3 col-md-offset-5">
+      <%= link_to t("views.reviews.create_review"),
+        new_book_review_rate_path(@book),
+        class: "btn btn-lg btn-success" %>
+    </div>
+  </div>
+
+  <%= render "books/reviews_form" %>
 </div>

@@ -1,2 +1,4 @@
 per_page: 8
 number_each: 4
+max_char: 200
+zezo: 0
