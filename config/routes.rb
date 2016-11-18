@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     resources :review_rates, except: :index
   end
   
-  resources :users, except: [:destroy]
+  resources :users, except: :destroy
+  resources :relationships, only: [:index, :create, :destroy]
   resources :categories, only: [:index, :show]
   resources :requests, except: [:show, :edit, :update]
 end

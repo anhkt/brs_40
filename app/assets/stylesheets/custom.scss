@@ -149,6 +149,44 @@ aside {
   margin-top: 15px;
 }
 
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid #d3d3d3;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
 /* forms */
 
 input, select, .uneditable-input {
@@ -195,6 +233,7 @@ input {
 
 /* show book */
 .book_image{
+ height: 615px;
  border: solid 1px #000000;
   img{
     border: solid 1px #999999;
@@ -208,11 +247,12 @@ input {
 }
 
 .index-grid-image{
+  max-height: 300px;
   padding: 10px;
 }
 .book_cover_img{
-  height: 340px;
-  width: 210px;
+  max-height: 240px;
+  width: 100%;
   border: solid 1px #999999;
 }
 .mark_and_favote{
