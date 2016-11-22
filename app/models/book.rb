@@ -10,7 +10,7 @@ class Book < ApplicationRecord
   validates :number_of_page,
     numericality: {greater_than_or_equal_to: 0, only_integer: true}
   validates :author, presence: true, length: {maximum: 50}
-  validates :description, presence: true, length: {maximum: 250}
+  validates :description, presence: true
   validates :category, presence: true
 
   scope :order_desc, -> {order created_at: :DESC}

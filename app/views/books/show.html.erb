@@ -26,14 +26,14 @@
       <%= @book.author %></br>
 
       <label><%= t "views.books.description" %></label></br>
-      <%= @book.description %>
+      <p style="white-space: pre-line"><%= @book.description %></p>
     </div>
   </div>
   <div class="row div-button-create-review">
     <div class="cold-md-3 col-md-offset-5">
       <%= link_to t("views.reviews.create_review"),
         new_book_review_rate_path(@book),
-        class: "btn btn-lg btn-success" %>
+        class: "btn btn-lg btn-custom" %>
     </div>
   </div>
 
