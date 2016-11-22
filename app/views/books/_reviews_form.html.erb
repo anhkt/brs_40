@@ -6,7 +6,6 @@
     <h3 class="col-md-offset-6"><%= t "views.reviews.review" %></h3>
   </div>
 </div>
-
 <% @reviews.each do |review| %>
   <div class="row review-row">
     <div class="col-md-3 avatar-row">
@@ -23,18 +22,16 @@
         <% if review.content.size >= Settings.max_char %>
           <%= review.content[Settings.zezo..Settings.max_char] %>
           <%= link_to t("views.reviews.continue"),
-            book_review_rate_path(@book, review),
-            class: "btn btn-link" %>
+            book_review_rate_path(@book, review),class: "btn btn-link" %>
         <% else %>
-          <p>
-            <%= review.content %>
-          </p>
+          <p> <%= review.content %> </p>
         <% end %>
       </div>
-
       <% if logged_in? %>
         <%= link_to t("views.reviews.like"), "#", class: "btn btn-link" %>
-        <% if review.user == current_user %>
+        <%= link_to t("views.reviews.rep"),
+          book_review_rate_path(@book, review) %>
+        <% if current_user.current_user? review.user %>
           <%= link_to t("views.reviews.edit"),
             edit_book_review_rate_path(review.book, review),
             class: "btn btn-link" %>
@@ -44,6 +41,7 @@
             class: "btn btn-link" %>
         <% end %>
       <% end %>
+      <div class= "comment"><%=render review.comments%></div>
     </div>
   </div>
 <% end %>

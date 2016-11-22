@@ -233,7 +233,6 @@ input {
 
 /* show book */
 .book_image{
- height: 615px;
  border: solid 1px #000000;
   img{
     border: solid 1px #999999;
@@ -247,11 +246,11 @@ input {
 }
 
 .index-grid-image{
-  max-height: 300px;
+  height: 300px;
   padding: 10px;
 }
 .book_cover_img{
-  max-height: 240px;
+  height: 240px;
   width: 100%;
   border: solid 1px #999999;
 }
@@ -332,11 +331,59 @@ input {
 .div-review{
   border-left: solid 1px #000;
 }
+
+.div-margin-top{
+  margin-top: 20px;
+}
+.review-row{
+  border-bottom: solid 1px #000000;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.div-button-create-review{
+  margin-top: 20px;
+  border-top: solid 1px #000000;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .content-review{
   word-wrap: break-word;
   text-overflow: ellipsis;
-  height: 100px;
+  height: 45px;
 }
+
 .div-margin-top{
   margin-top: 20px;
+  overflow: hidden;
+}
+
+.div-comment{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: dashed 1px #000;
+}
+
+.div-create{
+  margin-top: 20px;
+}
+
+.ajax-form-create{
+  border-top: solid 1px #000;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.btn-custom {
+  background: #000;
+  border: #000;
+  color: #FFF;
+  &:hover{
+    color: #FFF;
+  }
+}
+
+.white-space{
+  white-space: pre-line;
 }
