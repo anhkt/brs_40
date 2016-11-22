@@ -1,0 +1,27 @@
+<% comments.each do |comment| %>
+  <div class="row div-comment">
+    <%= gravatar_for comment.user, size: Settings.size_avatar %>
+    <strong>
+      <i>
+        <%= comment.user.name %>
+        <%= t "comment.say" %>
+      </i>
+    </strong>
+    <div class="col-md-offset-1">
+      <%= comment.content %>
+    </div>
+    <% if logged_in? %>
+      <% if current_user.current_user? comment.user %>
+        <div>
+          <%= link_to t("views.reviews.edit"),
+            edit_review_rate_comment_path(comment.review_rate, comment),
+            remote: true %>
+          <%= link_to t("views.reviews.delete"),
+            review_rate_comment_path(comment.review_rate, comment),
+            method: :delete,
+            data: {confirm: t("views.reviews.data_confirm")}, remote: true %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

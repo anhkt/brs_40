@@ -108,6 +108,9 @@ en:
       back: "Back"
       review: "Review"
       create_review: "Create Review"
+      rep: "Reply"
+      show_title: "Show review"
+      content_review: "Content Review"
 
     categories:
       title_page: "Categories"
@@ -145,6 +148,7 @@ en:
       delete: "Delete"
       confirm: "You sure delete this book?"
       new_title: "Create new book"
+      submit: "Submit"
 
     relationship:
       followers: "Followers"
@@ -188,4 +192,16 @@ en:
         signup: "Signup"
         form:
           confir: "Confirmation"
-          submit: "Create my account"    
+          submit: "Create my account"
+  comment:
+      title: "Comment review"
+      comment: "Comment"
+      find_review_fail: "Don't find review"
+      say: " said: "
+      data_confirm: "You sure delete this comment?"
+      edit_success: "Edit comment sucess"
+      delete_sucess: "Delete comment success"
+      delete_fail: "Delete comment fail"
+      find_comment: "Don't find comment"
+      rep: "Reply"
+      edit_comment: "Edit comment"        

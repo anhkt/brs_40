@@ -1,7 +1,7 @@
 <%= provide :title, t("views.reviews.show_title") %>
 <div class="div-margin-top">
   <%= link_to t("views.reviews.back"),
-    book_path(@review.book), class: "btn btn-lg btn-success" %>
+    book_path(@review.book), class: "btn btn-lg btn-custom" %>
 </div>
 <div class="container">
   <div class="row col-md-offset-5">
@@ -14,7 +14,19 @@
     <div class="col-md-8 col-md-offset-2">
       <div>
         <h5><strong><%= t "views.reviews.content_review" %></strong></h5>
-        <p><%= @review.content %></p>
+        <p style="white-space: pre-line"><%= @review.content %></p>
+        <div class="col-md-8 col-md-offset-2">
+        <p><%= @comment.content %></p>
+      </div>
+    </div>
+      <% if logged_in? %>
+        <div class="row col-md-11 col-md-offset-1 ajax-form-create">
+          <%= render "comments/comment_form",
+            button_name: t("comment.comment") %>
+        </div>
+      <% end %>
+      <div class="row div-create col-md-11 col-md-offset-1">
+        <%= render "review_rates/comments", comments: @review.comments.desc %>
       </div>
     </div>
   </div>
