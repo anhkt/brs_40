@@ -37,13 +37,13 @@ ActiveRecord::Schema.define(version: 20161101024642) do
     t.string   "author"
     t.float    "avg_rates",           limit: 24
     t.string   "cover"
-    t.string   "description"
+    t.text     "description",         limit: 65535
     t.integer  "number_rate_of_book"
     t.integer  "number_of_page"
     t.integer  "category_id"
     t.datetime "publish_date"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.index ["category_id"], name: "index_books_on_category_id", using: :btree
   end
 

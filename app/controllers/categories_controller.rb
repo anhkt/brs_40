@@ -17,14 +17,14 @@ class CategoriesController < ApplicationController
     @category = Category.find_by id: params[:id]
     if @category.nil?
       redirect_to categories_path
-      flash[:danger] = t "controller.categories.flash_danger"
+      flash[:danger] = t "controllers.categories.flash_danger"
     end
   end
 
   def load_categories
     @categories = Category.all
     if @categories.blank?
-      flash[:danger] = t "controller.categories.categories_danger"
+      flash[:danger] = t "controllers.categories.categories_danger"
     end
   end
 end

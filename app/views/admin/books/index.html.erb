@@ -3,11 +3,9 @@
 <div class="row row-button">
   <%= link_to t("views.books.create_new_book"),
     new_admin_category_book_path(@category, @book),
-    class: "btn btn-success" %>
+    class: "btn btn-custom" %>
 </div>
-
 <h3 class="col-md-offset-5"><%= @category.category_name %></h3>
-
 <div class="container">
   <div class="row">
     <table class="table table-hover table-striped table-book">
