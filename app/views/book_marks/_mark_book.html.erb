@@ -1,0 +1,12 @@
+<% if @book_marked && @book_marked.read_status.present? %>
+  <p class="marked">
+    <%= t "views.book_mark.marked" %>
+    <%= @book_marked.read_status %>
+  </p>
+  <%= link_to t("views.book_mark.change"),
+    edit_book_book_mark_path(@book, @book_marked), remote: true,
+    class: "edit-mark" %>
+  <div id="edit-mark"></div>
+<% else %>
+  <%= render "book_marks/mark_form" %>
+<% end %>

@@ -2,13 +2,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 book_image">
-      <div class="row">
-        <%= link_to "#", class: "btn btn-link col-md-offset-5" do %>
-          <span class="glyphicon glyphicon-bookmark" aria-hidden="true"/>
-        <% end %>
-        <%= link_to "#", class: "btn btn-link" do %>
-          <span class="glyphicon glyphicon-heart" aria-hidden="true"/>
-        <% end %>
+      <div class="col-md-4 center">
+        <div id="mark_read" class="formmark">
+          <%= link_to book_path(@book),
+            class: "btn btn-link col-md-offset-5" do %>
+            <div class="glyphicon glyphicon-bookmark" aria-hidden="true"></div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-6 center">
+        <div id="mark_favorite" class="formmark">
+          <%= link_to book_path(@book), class: "btn btn-link" do %>
+            <span class="glyphicon glyphicon-heart" aria-hidden="true"/>
+          <% end %>
+        </div>
       </div>
       <div class="row">
         <% if @book.cover? %>
@@ -27,6 +34,12 @@
 
       <label><%= t "views.books.description" %></label></br>
       <p style="white-space: pre-line"><%= @book.description %></p>
+      <%= @book.description %>
+      <div class="row">
+        <div class="col-md-3">
+          <%= render "book_marks/mark_book" %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row div-button-create-review">

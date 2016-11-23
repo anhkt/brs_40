@@ -26,12 +26,14 @@ en:
       category_blank: "Don't have a category. Let's create a category"  
 
     books:
-      book_blank: "Don't find book"  
+      book_blank: "Book not found"  
       create_success: "Create book success"    
       update_success: "Update success"
       destroy_success: "Delete success"
       destroy_fail: "Delete fail"
-      find_book_fail: "Don't find book"
+      find_book_fail: "Book not found"
+      success: "Mark book success."
+      marked_danger: "Book marked not found"
 
     requests:
       create_success: "Requests is create"
@@ -48,6 +50,12 @@ en:
     relationship:
       danger: "Relationship not found"
       success: "Relationship destroyed"
+
+    book_mark:
+      success: "You marked this book success!"
+      danger: "You don't mark this book."
+      edit_success: "You changed your read status success."
+      not: "Book mark is not found."
 
   views:
     shared: 
@@ -149,6 +157,24 @@ en:
       confirm: "You sure delete this book?"
       new_title: "Create new book"
       submit: "Submit"
+      show:
+        unfavorite: "Unfavorite"
+        favorite: "Love"
+        markread: "Read"
+
+    book_mark:
+      status: "Status"
+      list: "List book"
+      delete: "Delete"
+      confirm: "Are you sure?"
+      book:
+        title: "Title"
+        author: "Author"
+        catagory: "Catagory"
+        page: "Pages"
+        action: "Action"
+      change: "Change"
+      marked: "Marked as: "
 
     relationship:
       followers: "Followers"
