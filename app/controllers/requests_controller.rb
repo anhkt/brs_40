@@ -1,9 +1,9 @@
 class RequestsController < ApplicationController
   before_action :logged_in_user
   before_action :load_request, only: [:destroy]
-
+  
   def index
-    @requests = current_user.requests.order(id: :desc)
+    @requests = current_user.requests.order_by_time
       .paginate page: params[:page], per_page: Settings.per_page
   end
 
@@ -32,7 +32,7 @@ class RequestsController < ApplicationController
 
   private
   def request_params
-    params.require(:request).permit :book_name, :author, :content
+    params.require(:request).permit :book_name, :author, :content, :status
   end
 
   def load_request

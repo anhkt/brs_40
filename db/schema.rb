@@ -88,9 +88,10 @@ ActiveRecord::Schema.define(version: 20161101024642) do
     t.string   "book_name"
     t.string   "author"
     t.string   "content"
+    t.integer  "status",     default: 0
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["user_id"], name: "index_requests_on_user_id", using: :btree
   end
 
