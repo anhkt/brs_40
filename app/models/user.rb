@@ -11,9 +11,10 @@ class User < ApplicationRecord
     foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
- 
+  has_many :ratings
+  
   attr_accessor :remember_token
-  before_save {self.email = email.downcase}
+  before_save :downcase_email
   validates :name, presence: true, length: {maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum:255},
@@ -31,6 +32,10 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
+  end
+  
+  def downcase_email
+    self.email = email.downcase
   end
 
   def remember

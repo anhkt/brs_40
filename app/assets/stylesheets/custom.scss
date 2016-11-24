@@ -327,14 +327,24 @@ input {
 .avartar{
   margin-top: 20px
 }
+
+.rating {
+  padding: 5px 0;
+}
+
+.quantity {
+  padding: 5px 0 10px 0;
+}
+
 /* review */
-.div-review{
+.div-review {
   border-left: solid 1px #000;
 }
 
 .div-margin-top{
   margin-top: 20px;
 }
+
 .review-row{
   border-bottom: solid 1px #000000;
   padding-bottom: 10px;
