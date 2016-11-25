@@ -1,0 +1,41 @@
+<% provide :title, t(".title1") %>
+<h1><%= t ".title1" %></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t ".stt" %></th>
+      <th><%= t ".name" %></th>
+      <th><%= t ".namebook" %></th>
+      <th><%= t ".author" %></th>
+      <th><%= t ".content" %></th>
+      <th><%= t ".status" %></th>
+      <th><%= t ".action" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @requests.each.with_index do |request, index| %>
+      <tr>
+        <td><%= index + 1  %></td>
+        <td><%= link_to request.user.name, @user %></td>
+        <td><%= request.book_name %></td>
+        <td><%= request.author %></td>
+        <td><%= request.content %></td>
+        <td>
+          <%= link_to request.status, edit_admin_request_path(request),
+            class: "btn btn-primary" %>
+        </td>
+        <td>
+          <span>
+            <%= link_to t(".button"),
+              admin_request_path(request), method: :delete,
+              data: {confirm: t(".confirm")},
+              class: "btn btn-danger" %>
+          </span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate %>

@@ -1,0 +1,9 @@
+<%= form_for [:admin, @request] do |f| %>
+
+  <%= f.label :status %>
+  <span>
+    <%= f.select :status, options_for_select(@request_statuses),
+      class: "form-control" %>
+    <%= f.submit t("admin.requests.edit.submit"), class: "btn btn-primary" %>
+  </span>
+<% end %>

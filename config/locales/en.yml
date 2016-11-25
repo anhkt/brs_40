@@ -1,5 +1,39 @@
 en:
-  hello: "Hello world" 
+  hello: "Hello world"
+  admin:
+    requests:
+      index: 
+        stt: "STT"
+        name: "User"
+        namebook: "Name Book"
+        author: "Author"
+        content: "Content"
+        status: "Status"
+        action: "Action"
+        title1: "All request book"
+        accept: "Accept"
+        waiting: "Waiting"
+        submit: "Submit"
+        button: "Delete"
+        confirm: "Are you sure?"
+        show: "Show"
+      edit:
+        title: "Edit request"
+        edit: "Edit"
+        button: "Delete"
+        confirm: "Are your sure?"
+        submit: "Submit"
+      show:
+        title: "Request Book"
+        submit: "Submit"
+        cancel: "Cancel"
+        stt: "STT"
+        name: "User"
+        namebook: "Name Book"
+        author: "Author"
+        content: "Content"
+        status: "Status"
+
   controllers:
     flash:
       destroy_success: "User is deleted"
@@ -11,6 +45,8 @@ en:
       find_user_fail: "User not found!"
 
     admin:
+      request:
+        danger: "Request not found."
       login:
         flash:
           danger: "Please login as admin"   
@@ -36,9 +72,13 @@ en:
       marked_danger: "Book marked not found"
 
     requests:
+      waiting: "Waiting"
+      accept: "Accept"
+      deny: "Deny"
       create_success: "Requests is create"
       destroy_success: "Requests is deleted"
-      destroy_error: "Requests is not deleted"  
+      destroy_error: "Requests is not deleted"
+      update_success: "Requests is updated."
 
     reviews:
       flash_success: "Create review success"
@@ -103,6 +143,7 @@ en:
     reviews:
       user: "User"
       review: "Review"
+      action: "Action"
       status: "Reading Status : "
       content_review: "Review this Book"
       continue: "Continue..."
@@ -181,6 +222,7 @@ en:
       
 
     requests:
+      status: "Status"
       requests: "Requests"
       dashboard: "Request Book"
       id: "STT"

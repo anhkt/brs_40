@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :categories, except: :show do
       resources :books
     end  
+    resources :requests, except: [:new, :create, :show]
   end
 
   resources :books, only: [:index, :show] do
