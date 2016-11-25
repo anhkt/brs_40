@@ -4,7 +4,20 @@ max_char: 200
 zezo: 0
 minimum: 3
 maximum: 5000
+
 ratings:
   min_rate: 1
   max_rate: 5
   round: 2
+
+book_marks:
+  read_status:
+    reading: 2
+    read: 1
+    unread: 0
+
+size: "50x50"
+
+book:
+  history:
+    size: "120x180"

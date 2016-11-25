@@ -254,6 +254,11 @@ en:
     errors: "The form contains"
     error: "The form contains %{error_count} errors"
   users:
+    history: "History reading"
+    read: "Read"
+    reading: "Reading"
+    all1: "Users"
+    title: "All Users"
     profile: "Profile"
     all: "All Users"
     follow: "Follow"
