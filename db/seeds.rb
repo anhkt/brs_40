@@ -15,7 +15,7 @@ User.create!(name: "ducbka",
 end
   
 16.times do |n|
-  name = Faker::Name.name
+  name = "category_name-#{n+1}"
   Category.create!(category_name: name)  
 end
 
@@ -32,19 +32,8 @@ categories = Category.take(16)
   }
 end
 
-categories = Category.find 4
-3.times do
-  title = Faker::Book.title
-  author = Faker::Book.author
-  description = Faker::Lorem.characters(100)
-  date = Faker::Date.between(2.days.ago, Date.today)
-  number_page = Faker::Number.between(1, 100)
-  categories.books.create!(title: title,author: author,
-    publish_date: date, number_of_page: number_page,description: description)
-end
-
 users = User.all
-user = user.first
+user = User.first
 following = users[1..10]
 followers = users[2..7]
 following.each {|followed| user.follow(followed)}

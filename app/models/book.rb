@@ -3,7 +3,8 @@ class Book < ApplicationRecord
 
   has_many :book_marks, dependent: :destroy
   has_many :review_rates, dependent: :destroy
-
+  has_many :ratings
+  
   mount_uploader :cover, PictureUploader
 
   validates :title, presence: true, length: {maximum: 140}
@@ -15,4 +16,8 @@ class Book < ApplicationRecord
 
   scope :order_desc, -> {order created_at: :DESC}
   scope :publish_date_order_desc, ->{order publish_date: :DESC}
+
+  def rated? user
+    self.ratings.find_by user: user
+  end
 end

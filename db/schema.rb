@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101024642) do
+ActiveRecord::Schema.define(version: 20161122081311) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "target_id"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20161101024642) do
     t.index ["user_id"], name: "index_like_activities_on_user_id", using: :btree
   end
 
+  create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "rate"
+    t.integer  "status"
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_ratings_on_book_id", using: :btree
+    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
+  end
+
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -126,6 +137,8 @@ ActiveRecord::Schema.define(version: 20161101024642) do
   add_foreign_key "comments", "users"
   add_foreign_key "like_activities", "activities"
   add_foreign_key "like_activities", "users"
+  add_foreign_key "ratings", "books"
+  add_foreign_key "ratings", "users"
   add_foreign_key "requests", "users"
   add_foreign_key "review_rates", "books"
   add_foreign_key "review_rates", "users"

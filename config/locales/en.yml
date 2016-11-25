@@ -96,6 +96,8 @@ en:
       danger: "You don't mark this book."
       edit_success: "You changed your read status success."
       not: "Book mark is not found."
+    ratings:
+      rate_success: "Rate success."  
 
   views:
     shared: 
@@ -179,6 +181,7 @@ en:
       book_nill: "Don't have book in category"
 
     books:
+      page: "Pages: "
       title: "List Book"
       author: "Author: "
       description: "Description: "  
@@ -235,6 +238,11 @@ en:
       title: "New Requests"
       create_requests: "Create new request"
       create_button: "Create request"  
+
+    ratings:
+      rating: "Rating"
+      vote: "vote"
+      rate: "Rate"  
   helpers:
     base_title: "Book Reviews"
   sessions:

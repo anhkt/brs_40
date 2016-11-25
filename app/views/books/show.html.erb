@@ -2,20 +2,35 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4 book_image">
-      <div class="col-md-4 center">
+      <div class="col-md-4 ">
         <div id="mark_read" class="formmark">
           <%= link_to book_path(@book),
-            class: "btn btn-link col-md-offset-5" do %>
-            <div class="glyphicon glyphicon-bookmark" aria-hidden="true"></div>
+            class: "btn btn-link col-md-offset-4" do %>
           <% end %>
         </div>
       </div>
       <div class="col-md-6 center">
         <div id="mark_favorite" class="formmark">
-          <%= link_to book_path(@book), class: "btn btn-link" do %>
+          <%= link_to book_path(@book), class: "btn btn-link col-md-6" do %>
             <span class="glyphicon glyphicon-heart" aria-hidden="true"/>
           <% end %>
         </div>
+      <div class="row">
+      </div>  
+        <div class="rating"><%= t "views.ratings.rating" %>:
+          <%= @rate.round Settings.ratings.round %>/<%= Settings.ratings.max_rate %>
+          (<%= pluralize @book.ratings.count, t("views.ratings.vote") %>)
+        </div>
+        <% if logged_in? && !@book.rated?(current_user) %>
+          <%= form_for [@book, @rating],
+            html: {remote: true, class: "form-inline", id: "rating-form"} do |f| %>
+            <%= f.select :rate,
+              options_for_select(Settings.ratings.min_rate..Settings.ratings.max_rate,
+              params[:rate]), {}, class: "form-control" %>
+            <%= f.submit t("views.ratings.rate"), class: "btn-warning
+              form-control" %>
+          <% end %>
+        <% end %>
       </div>
       <div class="row">
         <% if @book.cover? %>
@@ -35,6 +50,10 @@
       <label><%= t "views.books.description" %></label></br>
       <p style="white-space: pre-line"><%= @book.description %></p>
       <%= @book.description %>
+
+      <label><%= t "views.books.page" %></label>
+      <%= @book.number_of_page %>
+
       <div class="row">
         <div class="col-md-3">
           <%= render "book_marks/mark_book" %>
@@ -49,6 +68,5 @@
         class: "btn btn-lg btn-custom" %>
     </div>
   </div>
-
   <%= render "books/reviews_form" %>
-</div>
+ </div>

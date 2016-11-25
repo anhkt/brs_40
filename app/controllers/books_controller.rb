@@ -8,6 +8,8 @@ class BooksController < ApplicationController
     if @book_marked.nil?
       @book_mark = @book.book_marks.build
     end
+    @rating = @book.ratings.build
+    @rate = @book.ratings.average(:rate) || 0
   end
   
   private
