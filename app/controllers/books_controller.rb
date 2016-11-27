@@ -1,6 +1,11 @@
 class BooksController < ApplicationController
   before_action :find_book, only: :show
 
+  def index
+    @books = Book.search(params[:search]).paginate page: params[:page],
+      per_page: Settings.per_page
+  end
+
   def show
     @reviews = @book.review_rates.desc.paginate page: params[:page],
       per_page: Settings.per_page

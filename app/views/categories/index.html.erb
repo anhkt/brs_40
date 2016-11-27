@@ -1,5 +1,15 @@
 <% provide :title, t("views.categories.title_page") %>
 <div class="container">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <div class="search-form">
+      <%= form_tag books_path, method: :get do %>
+        <%= text_field_tag :search, params[:search],
+          placeholder: t("views.search.title"), class: "form-control",
+          value: nil %>
+        <%= submit_tag t("views.search.submit"), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-3">
       <%= render "categories/category_form" %>
