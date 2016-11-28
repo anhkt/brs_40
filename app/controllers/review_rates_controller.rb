@@ -1,6 +1,6 @@
 class ReviewRatesController < ApplicationController
   before_action :logged_in_user
-  before_action :find_book
+  before_action :find_book, :load_mark
   before_action :find_review, except: [:new, :create]
 
   def new
@@ -45,7 +45,7 @@ class ReviewRatesController < ApplicationController
 
   private
   def review_params
-    params.require(:review_rate).permit :content, :book_id, :read_status
+    params.require(:review_rate).permit :content, :book_id, :mark_type
   end
 
   def find_review
@@ -59,8 +59,13 @@ class ReviewRatesController < ApplicationController
   def find_book
     @book = Book.find_by id: params[:book_id]
     if @book.nil?
-      redirect_to books_path
       flash[:danger] = t "controllers.books.book_blank"
+      redirect_to books_path
     end
+  end
+
+  def load_mark
+    @book_mark_types = ReviewRate.mark_types
+     .map{|key, value| [t("controllers.book_mark.#{key}"), key]}
   end
 end

@@ -6,8 +6,9 @@
 
         <%= render "shared/error_messages", object: f.object %>
         <div class="form-group">
-          <%= f.label :read_status %>
-          <%= f.select :read_status, options_for_select(ReviewRate.read_statuses.keys),
+          <%= f.label :mark_type %>
+          <%= f.select :mark_type,
+            options_for_select(@book_mark_types),
             class: "form-control" %>
         </div>
 

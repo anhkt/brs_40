@@ -93,12 +93,16 @@ en:
       success: "Relationship destroyed"
 
     book_mark:
-      success: "You marked this book success!"
+      success: "You marked this book successfully!"
       danger: "You don't mark this book."
-      edit_success: "You changed your read status success."
+      edit_success: "You changed your read status successfully."
       not: "Book mark is not found."
+      read: "read"
+      reading: "reading"
+      unread: "unread"
+      favorite: "favorite"
     ratings:
-      rate_success: "Rate success."  
+      rate_success: "Rate successfully."  
 
   views:
     search:

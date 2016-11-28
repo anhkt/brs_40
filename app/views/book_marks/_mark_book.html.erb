@@ -1,7 +1,7 @@
-<% if @book_marked && @book_marked.read_status.present? %>
+<% if @book_marked && @book_marked.mark_type.present? %>
   <p class="marked">
     <%= t "views.book_mark.marked" %>
-    <%= @book_marked.read_status %>
+    <%= @book_marked.mark_type %>
   </p>
   <%= link_to t("views.book_mark.change"),
     edit_book_book_mark_path(@book, @book_marked), remote: true,

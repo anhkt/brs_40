@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
+  include BookConcerns
   before_action :find_book, only: :show
-
+  
   def index
     @books = Book.search(params[:search]).paginate page: params[:page],
       per_page: Settings.per_page
@@ -16,7 +17,7 @@ class BooksController < ApplicationController
     @rating = @book.ratings.build
     @rate = @book.ratings.average(:rate) || 0
   end
-  
+
   private
   def find_book
     @book = Book.find_by id: params[:id]

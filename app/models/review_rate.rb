@@ -1,5 +1,5 @@
 class ReviewRate < ApplicationRecord
-  enum read_status: {unread: 0, read: 1, reading: 2}
+  enum mark_types: [:unread, :read, :reading, :favorite]
 
   belongs_to :user
   belongs_to :book

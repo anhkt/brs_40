@@ -4,7 +4,6 @@
 
   <%= f.submit t("views.book_mark.marked"), class: "btn btn-primary" %>
   <span>
-    <%= f.select :read_status,
-      options_for_select(BookMark.read_statuses.keys) %>
+    <%= f.select :mark_type, options_for_select(@book_mark_types) %>
   </span>
 <% end %>

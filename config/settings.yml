@@ -10,12 +10,6 @@ ratings:
   max_rate: 5
   round: 2
 
-book_marks:
-  read_status:
-    reading: 2
-    read: 1
-    unread: 0
-
 size: "50x50"
 
 book:

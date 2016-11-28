@@ -1,0 +1,16 @@
+<h3><%= t "users.favorite" %></h3>
+<% if @supports.favorite %>
+  <% @supports.favorite.each do |favorite| %>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <strong id="title">
+          <%= favorite.title %>
+        </strong>
+        <%= link_to favorite do %>
+          <%= image_tag favorite.cover.url,
+            size: Settings.book.history.size %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

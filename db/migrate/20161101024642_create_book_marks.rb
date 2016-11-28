@@ -1,8 +1,7 @@
 class CreateBookMarks < ActiveRecord::Migration[5.0]
   def change
     create_table :book_marks do |t|
-      t.integer :read_status
-      t.boolean :is_favorite
+      t.integer :mark_type
       t.integer :user_id
       t.integer :book_id
       t.references :user, foreign_key: true
