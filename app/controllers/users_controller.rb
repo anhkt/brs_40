@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:show, :new, :create]
-  before_action :find_user, except: [:index, :new, :create]
+  before_action :find_user, except: [:new, :index, :create]
   before_action :valid_user, only: [:edit, :update]
+  
+  def index
+    @users = User.paginate page: params[:page]
+  end
 
   def show
     @relationship = if current_user.following? @user
@@ -9,6 +13,7 @@ class UsersController < ApplicationController
     else
       current_user.active_relationships.build
     end
+    @supports = Supports::User.new @user
   end
 
   def new

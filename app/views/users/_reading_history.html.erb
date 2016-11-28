@@ -1,0 +1,18 @@
+<ul class="nav nav-tabs">
+  <li class="dropdown">
+    <li>
+      <%= link_to t("users.reading"), "#reading", data: {toggle: "tab"} %>
+    </li>
+    <li>
+      <%= link_to t("users.read"), "#read", data: {toggle: "tab"} %>
+    </li>
+  </li>
+</ul>
+<div class="tab-content">
+  <div id="reading" class="tab-pane fade in active">
+    <%= render "reading_books" %>
+  </div>
+  <div id="read" class="tab-pane fade">
+    <%= render "read_books" %>
+  </div>
+</div>

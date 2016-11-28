@@ -1,0 +1,16 @@
+<h3><%= t "users.reading" %></h3>
+<% if @supports.reading_book %>
+  <% @supports.reading_book.each do |reading_book| %>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <strong id="title">
+          <%= reading_book.title %>
+        </strong>
+          <%= link_to reading_book do %>
+            <%= image_tag reading_book.cover.url,
+              size: Settings.book.history.size %>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
