@@ -43,10 +43,8 @@
       <label><%= t "views.books.description" %></label></br>
       <p style="white-space: pre-line"><%= @book.description %></p>
       <%= @book.description %>
-
-      <label><%= t "views.books.page" %></label>
-      <%= @book.number_of_page %>
-
+      <p><label><%= t "views.books.page" %></label>
+      <%= @book.number_of_page %></p>
       <div class="row">
         <div class="col-md-3">
           <%= render "book_marks/mark_book" %>

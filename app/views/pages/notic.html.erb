@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <% if logged_in? %>
+    <div class="col-md-4">
+        <div class="row">
+          <h1><%= t "activity.new_book" %></h1>
+          <h2><%= t "activity.known" %> </h2>
+        </div>
+          <table class="table table-hover table-striped table-book">
+            <thead class="head-table">
+              <tr>
+                <th><%= t "views.activity.title_book" %></th>
+                <th><%= t "views.activity.author" %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @books.each do |book| %>
+                <tr>
+                  <th><%= link_to book.title, book %>
+                  <th><%= book.author %></th>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+        </div>
+      <div class="col-md-6 col-md-offset-1">
+        <div class="row">
+          <h1><%= t "views.activity.title" %></h1>
+        </div>
+        <div class="row">
+          <% @activities.each do |activity| %>
+            <% if activity.target_activity %>
+              <div class="row">
+                <h4 class="div-activity text-center">
+                  <%= link_to activity.user.name, activity.user %>
+                  <%= content activity.activity_type %>
+                  <% if activity.follow? %>
+                    <%= link_to activity.target_activity.name,
+                      activity.target_activity %>
+                  <% elsif activity.comment? %>
+                    <%= link_to t("views.activity.review_title"),
+                      book_review_rate_path(activity.target_activity.book,
+                      activity.target_activity) %>
+                    <%= t("views.activity.in") %>
+                    <%= link_to activity.target_activity.book.title,
+                      activity.target_activity.book  %>
+                  <% else %>
+                    <%= link_to activity.target_activity.title,
+                      activity.target_activity %>
+                  <% end %>
+                  <div class="row">
+                    <h5>
+                      <i>
+                        <%= time_ago_in_words activity.created_at %>
+                        <%= t "views.activity.ago" %>
+                      </i>
+                    </h5>
+                  </div>
+                </h4>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

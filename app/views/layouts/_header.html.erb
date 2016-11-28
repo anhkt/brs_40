@@ -4,6 +4,8 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("views.layouts.header.home"), root_path %></li>
+        <li><%= link_to t("views.layouts.header.categories"),
+          categories_path %></li>
         <% if logged_in? %>
           <% if current_user.is_admin? %>
             <li><%= link_to t("views.layouts.header.user"), 
@@ -13,8 +15,6 @@
             <li><%= link_to t("views.requests.requests"),
               admin_requests_path %></li> 
           <% else %>
-            <li><%= link_to t("views.layouts.header.categories"),
-              categories_path %></li>
             <li><%= link_to t("views.requests.requests"), requests_path %></li>
             <li><%= link_to t("users.all1"), users_path %></li>
             <li><%= link_to t("views.search.search"), books_path %></li>
@@ -23,17 +23,28 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t "views.layouts.header.account" %> <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to t("views.layouts.header.profile"),
-                current_user %></li>
-              <li><%= link_to t("views.layouts.header.setting"),
-                edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to t("views.layouts.header.logout"), logout_path,
-                  method: :delete %>
-              </li>
-            </ul>
+            <% if current_user.is_admin? %>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to t("views.layouts.header.logout"), logout_path,
+                    method: :delete %>
+                </li>
+              </ul> 
+            <% else %>
+              <ul class="dropdown-menu">
+                <li><%= link_to t("views.layouts.header.profile"),
+                  current_user %></li>
+                <li><%= link_to t("views.layouts.header.setting"),
+                  edit_user_path(current_user) %></li>
+                <li><%= link_to t("views.layouts.header.notification"),
+                  "/pages/notic" %></li>  
+                <li class="divider"></li>
+                 <li>
+                  <%= link_to t("views.layouts.header.logout"), logout_path,
+                    method: :delete %>
+                </li>  
+              </ul>
+            <% end %>  
           </li>
         <% else %>
           <li><%= link_to t("views.layouts.header.login"), login_path %></li>
