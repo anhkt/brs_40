@@ -19,7 +19,7 @@ class Book < ApplicationRecord
   scope :search_by, ->search {where "title LIKE ? OR author LIKE ?",
     "%#{search}%", "%#{search}%"}
 
-  BookMark.read_statuses.keys.each do |name|
+  BookMark.mark_types.keys.each do |name|
     scope :"#{name}_books",
     ->user {where id: user.book_marks.send(name).pluck(:book_id)}
   end

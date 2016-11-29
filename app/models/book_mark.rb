@@ -5,8 +5,6 @@ class BookMark < ApplicationRecord
   validates :user, presence: true
   validates :book, presence: true
 
-  enum read_status: [:unread, :read, :reading]
-
-  scope :favorited, ->{where is_favorite: true}
+  enum mark_type: [:unread, :read, :reading, :favorite]
 
 end

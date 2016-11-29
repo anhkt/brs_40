@@ -6,6 +6,9 @@
     <li>
       <%= link_to t("users.read"), "#read", data: {toggle: "tab"} %>
     </li>
+    <li>
+      <%= link_to t("users.favorite"), "#favorite", data: {toggle: "tab"} %>
+    </li>
   </li>
 </ul>
 <div class="tab-content">
@@ -14,5 +17,8 @@
   </div>
   <div id="read" class="tab-pane fade">
     <%= render "read_books" %>
+  </div>
+  <div id="favorite", class="tab-pane">
+    <%= render "favorite_books" %>
   </div>
 </div>

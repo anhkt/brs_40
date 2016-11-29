@@ -17,7 +17,7 @@
       <strong>
         <%= t "views.reviews.status" %>
       </strong>
-      <strong> <b><%= review.read_status %></b> </strong>
+      <strong> <b><%= review.mark_type %></b> </strong>
       <div class="content-review">
         <% if review.content.size >= Settings.max_char %>
           <%= review.content[Settings.zezo..Settings.max_char] %>
