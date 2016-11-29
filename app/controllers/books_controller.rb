@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
   before_action :find_book, only: :show
   before_action :logged_in_user
-  
+  before_action :load_mark, only: [:edit, :update, :show]
+
+
   def index
     @books = Book.search(params[:search]).paginate page: params[:page],
       per_page: Settings.per_page

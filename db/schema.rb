@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 20161122081311) do
   end
 
   create_table "book_marks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "mark_type"
+    t.integer  "mark_type",  default: 0
     t.integer  "user_id"
     t.integer  "book_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["book_id"], name: "index_book_marks_on_book_id", using: :btree
     t.index ["user_id", "book_id"], name: "index_book_mark_unique", unique: true, using: :btree
     t.index ["user_id"], name: "index_book_marks_on_user_id", using: :btree
