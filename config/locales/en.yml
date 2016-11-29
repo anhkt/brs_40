@@ -36,6 +36,7 @@ en:
 
   controllers:
     flash:
+      warning: "No results."
       destroy_success: "User is deleted"
       destroy_error: "User is not deleted"
       logged_in: "Please Login"
@@ -100,6 +101,12 @@ en:
       rate_success: "Rate success."  
 
   views:
+    search:
+      results: "Results"
+      search: "Search"
+      title: "Search by title or author"
+      submit: "Search"
+
     shared: 
       following: "following"
       followers: "followers"
@@ -201,6 +208,7 @@ en:
       confirm: "You sure delete this book?"
       new_title: "Create new book"
       submit: "Submit"
+      nobook: "There are no books currently in this category"
       show:
         unfavorite: "Unfavorite"
         favorite: "Love"

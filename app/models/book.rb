@@ -16,6 +16,8 @@ class Book < ApplicationRecord
 
   scope :order_desc, ->{order created_at: :DESC}
   scope :publish_date_order_desc, ->{order publish_date: :DESC}
+  scope :search_by, ->search {where "title LIKE ? OR author LIKE ?",
+    "%#{search}%", "%#{search}%"}
 
   BookMark.read_statuses.keys.each do |name|
     scope :"#{name}_books",
@@ -24,5 +26,11 @@ class Book < ApplicationRecord
 
   def rated? user
     self.ratings.find_by user: user
+  end
+
+  class << self
+    def search search
+      search ? search_by(search) : Book.all
+    end
   end
 end
