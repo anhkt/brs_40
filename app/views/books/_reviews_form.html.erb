@@ -28,7 +28,6 @@
         <% end %>
       </div>
       <% if logged_in? %>
-        <%= link_to t("views.reviews.like"), "#", class: "btn btn-link" %>
         <%= link_to t("views.reviews.rep"),
           book_review_rate_path(@book, review) %>
         <% if current_user.current_user? review.user %>

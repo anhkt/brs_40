@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  include BookConcerns
   before_action :find_book, only: :show
+  before_action :logged_in_user
   
   def index
     @books = Book.search(params[:search]).paginate page: params[:page],
@@ -8,7 +8,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    @reviews = @book.review_rates.desc.paginate page: params[:page],
+    load_mark
+    @reviews = @book.review_rates.descending.paginate page: params[:page],
       per_page: Settings.per_page
     @book_marked = @book.book_marks.find_by user_id: current_user.id
     if @book_marked.nil?
@@ -25,5 +26,10 @@ class BooksController < ApplicationController
       flash[:danger] = t "controllers.books.book_blank"
       redirect_to books_path
     end
+  end
+
+  def load_mark
+    @book_mark_types = BookMark.mark_types
+      .map{|key, value| [t("controllers.book_mark.#{key}"), key]}
   end
 end

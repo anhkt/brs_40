@@ -1,7 +1,7 @@
 class BookMarksController < ApplicationController
   before_action :logged_in_user
   before_action :load_book
-  before_action :load_mark, only: [:edit, :update]
+  before_action :load_mark, only: [:edit, :update, :show]
  
   def create
     @book_mark = @book.book_marks.build book_marks_params
@@ -39,8 +39,7 @@ class BookMarksController < ApplicationController
   end
 
   def load_mark
-    @book_mark_types = BookMark.mark_types
-     .map{|key, value| [t("controllers.book_mark.#{key}"), key]}
+    @book_mark_types = BookMark.mark_types.map{|key, value| [t("controllers.book_mark.#{key}"), key]}
     @book_mark = BookMark.find_by id: params[:id]
     if @book_mark.nil?
       flash[:danger] = t "controllers.book_mark.not"

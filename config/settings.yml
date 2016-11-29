@@ -4,6 +4,7 @@ max_char: 200
 zezo: 0
 minimum: 3
 maximum: 5000
+take_book: 10
 
 ratings:
   min_rate: 1

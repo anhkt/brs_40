@@ -6,5 +6,4 @@ class BookMark < ApplicationRecord
   validates :book, presence: true
 
   enum mark_type: [:unread, :read, :reading, :favorite]
-
 end
